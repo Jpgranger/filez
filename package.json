@@ -2,7 +2,10 @@
   "name": "filez",
   "type": "module",
   "imports": {
-    "#*": "./*.js"
+  "#db/*": "./db/*.js",
+  "#db": "./db",
+  "#app": "./app.js"
+
   },
   "scripts": {
     "start": "node --env-file=.env server.js",
@@ -12,7 +15,8 @@
     "test:server": "vitest server",
     "db:schema": "psql -d filez -f db/schema.sql",
     "db:seed": "node --env-file=.env db/seed.js",
-    "db:reset": "npm run db:schema && npm run db:seed"
+    "db:reset": "npm run db:schema && npm run db:seed",
+    "seed": "npm run db:seed"
   },
   "dependencies": {
     "express": "^5.1.0",
@@ -20,7 +24,7 @@
   },
   "devDependencies": {
     "supertest": "^7.1.0",
-    "vitest": "^3.1.2"
+    "vitest": "^3.2.4"
   },
   "engines": {
     "node": ">=22"
